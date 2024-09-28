@@ -6,11 +6,12 @@
     <title>Productos Recomendados</title>
     <style>
         body {
-            font-family: poppins, sans-serif;
+            font-family: 'Poppins', sans-serif;
             background-color: #000000;
             margin: 0;
             padding: 0;
         }
+
         header {
             background-image: url('CITYWEEAR.jpg');
             background-size: cover;
@@ -19,83 +20,196 @@
             padding: 60px 20px;
             text-align: center;
         }
-        .container {
+
+        .carousel {
             max-width: 1200px;
             margin: 20px auto;
-            padding: 20px;
+            overflow: hidden;
+            position: relative;
         }
+
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-item {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+
         .product {
             background-color: #092611;
             border: 1px solid #ddd;
             border-radius: 8px;
             padding: 20px;
-            margin-bottom: 20px;
             display: flex;
             flex-wrap: wrap;
         }
+
         .product img {
             max-width: 200px;
             border-radius: 8px;
         }
+
         .product-details {
             flex-grow: 1;
             margin-left: 20px;
         }
-        .product-details h3 {
-            margin: 0;
+
+        .product-details h3, .product-details p {
             color: #fdfdfd;
         }
-        .product-details p {
-            color: #fdfdfd;
-        }
-        .product-details a {
+
+        .product-details a, .add-to-cart {
             display: inline-block;
             padding: 10px 15px;
             background-color: #0e3e1b;
             color: white;
             border-radius: 5px;
             text-decoration: none;
+            margin-right: 10px;
         }
-        .product-details a:hover {
+
+        .product-details a:hover, .add-to-cart:hover {
             background-color: #0e3e1b;
+        }
+
+        .controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .prev, .next {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        #cart {
+            background-color: white;
+            color: black;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 20px;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 200px;
+            height: auto;
         }
     </style>
 </head>
 <body>
     <header>
-    <h2>.</h2>
+        <h2>Productos Recomendados</h2>
     </header>
 
-    <div class="container">
-        <!-- lentes -->
-        <div class="product">
-            <img src="./gafashtml.jpg"lentes">
-            <div class="product-details">
-                <h3>lentes</h3>
-                <p>lentes de alta calidad en color negro.</p>
-                <a href="https://www.shein.com.co/1pc-Fashionable-Y2k-Outdoor-Sports-Retro-Fashion-Glasses-For-Driving-Traveling-Beach-Etc-For-Both-Men-And-Women-Casual-Shades-Accessories-p-26951253.html?src_identifier=fc%3DJewelry%20%26%20Accessories%60sc%3DJewelry%20%26%20Accessories%60tc%3DSHOP%20BY%20CATEGORY%60oc%3DMen%20Fashion%20Accessories%60ps%3Dtab09navbar09menu01dir12%60jc%3Dreal_2027&src_module=topcat&src_tab_page_id=page_goods_detail1727023044530&mallCode=1&pageListType=4&imgRatio=3-4"_blank">Comprar lentes</a>
+    <div class="carousel">
+        <div class="carousel-inner">
+            <!-- lentes -->
+            <div class="carousel-item">
+                <div class="product">
+                    <img src="./gafashtml.jpg" alt="lentes">
+                    <div class="product-details">
+                        <h3>Lentes</h3>
+                        <p>Lentes de alta calidad en color negro.</p>
+                        <a href="https://www.shein.com.co/1pc-Fashionable-Y2k-Outdoor-Sports-Retro-Fashion-Glasses-For-Driving-Traveling-Beach-Etc-For-Both-Men-And-Women-Casual-Shades-Accessories-p-26951253.html" target="_blank">Comprar lentes</a>
+                        <button class="add-to-cart" onclick="addToCart('Lentes', 20)">Añadir al carrito</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- camiseta -->
+            <div class="carousel-item">
+                <div class="product">
+                    <img src="./camisetahtml.jpg" alt="camiseta">
+                    <div class="product-details">
+                        <h3>Camiseta</h3>
+                        <p>Camiseta color negro oversize.</p>
+                        <a href="https://www.shein.com.co/Manfinity-EMRG-Men-s-Knitted-Crewneck-Casual-T-Shirt-With-Printed-Text-p-27162358.html" target="_blank">Comprar camiseta</a>
+                        <button class="add-to-cart" onclick="addToCart('Camiseta', 30)">Añadir al carrito</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- sudadera -->
+            <div class="carousel-item">
+                <div class="product">
+                    <img src="./sudaderahtml.jpg" alt="sudadera">
+                    <div class="product-details">
+                        <h3>Sudadera</h3>
+                        <p>Sudadera oversize.</p>
+                        <a href="https://www.shein.com.co/Manfinity-Hypemode-Fitted-Printed-Knit-Hoodie-p-26266072.html" target="_blank">Comprar sudadera</a>
+                        <button class="add-to-cart" onclick="addToCart('Sudadera', 50)">Añadir al carrito</button>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <!-- camiseta -->
-        <div class="product">
-            <img src="./camisetahtml.jpg"camiseta">
-            <div class="product-details">
-                <h3>camiseta</h3>
-                <p>camiseta color negro oversize.</p>
-                <a href="https://www.shein.com.co/Manfinity-EMRG-Men-s-Knitted-Crewneck-Casual-T-Shirt-With-Printed-Text-p-27162358.html?src_identifier=on%3DIMAGE_COMPONENT%60cn%3Dcategory%60hz%3DhotZone_9%60ps%3D4_9%60jc%3Dreal_2026&src_module=All&src_tab_page_id=page_home1726952706314&mallCode=1&pageListType=4&imgRatio=3-4" target="_blank">Comprar camiseta</a>
-            </div>
-        </div>
-
-        <!-- sudadera -->
-        <div class="product">
-            <img src="./sudaderahtml.jpg"sudadera">
-            <div class="product-details">
-                <h3>sudadera</h3>
-                <p>sudadera oversize.</p>
-                <a href="https://www.shein.com.co/Manfinity-Hypemode-Fitted-Printed-Knit-Hoodie-p-26266072.html?src_identifier=fc%3DMen%20Clothing%60sc%3DMen%20Clothing%60tc%3D0%60oc%3D0%60ps%3Dtab07navbar07%60jc%3DitemPicking_017172963&src_module=topcat&src_tab_page_id=page_goods_detail1727022893290&mallCode=1&pageListType=4&imgRatio=3-4"_blank">Comprar sudadera</a>
-            </div>
+        <div class="controls">
+            <span class="prev" onclick="prevSlide()">❮</span>
+            <span class="next" onclick="nextSlide()">❯</span>
         </div>
     </div>
+
+    <!-- Carrito de compras -->
+    <div id="cart">
+        <h3>Carrito de Compras</h3>
+        <ul id="cart-items"></ul>
+        <p>Total: $<span id="cart-total">0</span></p>
+    </div>
+
+    <script>
+        // Carrusel
+        let index = 0;
+        const items = document.querySelectorAll('.carousel-item');
+        const totalItems = items.length;
+
+        function nextSlide() {
+            index = (index + 1) % totalItems;
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            index = (index - 1 + totalItems) % totalItems;
+            updateCarousel();
+        }
+
+        function updateCarousel() {
+            const carouselInner = document.querySelector('.carousel-inner');
+            carouselInner.style.transform = `translateX(${-index * 100}%)`;
+        }
+
+        // Carrito de compras
+        let cart = [];
+        let total = 0;
+
+        function addToCart(productName, price) {
+            cart.push({ productName, price });
+            total += price;
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartItems = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+            cartItems.innerHTML = '';
+
+            cart.forEach((item, index) => {
+                const li = document.createElement('li');
+                li.textContent = `${item.productName} - $${item.price}`;
+                cartItems.appendChild(li);
+            });
+
+            cartTotal.textContent = total;
+        }
+    </script>
 </body>
 </html>
+
